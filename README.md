@@ -4,7 +4,7 @@ This project is a Python Flask dashboard application deployed to Azure App Servi
 
 ## Technical stack
 
-- Backend: Python 3.11, Flask 3.x
+- Backend: Python 3.14 in the deployment workflow, Flask 3.x
 - Frontend: HTML5, CSS3, JavaScript
 - Testing: Pytest
 - Deployment target: Microsoft Azure App Service (Linux)
@@ -29,8 +29,13 @@ This project is a Python Flask dashboard application deployed to Azure App Servi
 - `static/css/style.css` — custom styling
 - `static/js/script.js` — frontend health-check logic
 - `tests/test_app.py` — unit tests for application routes
-- `.github/workflows/deploy.yml` — CI/CD workflow for Azure deployment
+- `.github/workflows/main_pythonwebapp98600.yml` — CI/CD workflow for Azure deployment
 - `.gitignore` — ignore rules for local environment files
+
+## Architecture
+
+See [the architecture diagram](docs/architecture.md) for the application
+runtime and GitHub Actions deployment flow.
 
 ## Local development
 
@@ -64,6 +69,8 @@ python -m pytest -v
 
 ## Deployment notes
 
-The GitHub Actions workflow builds the app, runs tests, packages the app, logs into Azure using OIDC, and deploys the artifact to Azure App Service.
+The GitHub Actions workflow installs the app dependencies, packages the app,
+logs into Azure using OIDC, and deploys the artifact to Azure App Service.
+The current workflow does not run the Pytest suite.
 
 This project was generated from the original tutorial and the long embedded code samples were removed from the README after the implementation files were created.
